@@ -1,1 +1,1 @@
-console.log ("Hi my name is Henrik");
+console.log ("Hi my name is Henrik. Hobbies: eating, fishing, breefing. I live in fish city. I´m 42 years old.");
