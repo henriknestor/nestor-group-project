@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Card from "./Card";
+import Card from "./card.jsx";
 
 const Register = () => {
     const [username, setUsername] = useState("");

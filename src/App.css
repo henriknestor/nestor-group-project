@@ -1,42 +1,182 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+* {
+  font-family: 'Inter', sans-serif;
+  font-size: large;
+}
+
+h1 {
+  font-size: 35px;
+  margin-top: 50px;
+}
+
+.App-header {
+  background-color: #282c34;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.menu-list{
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  transform: translate(-20px);
+}
+
+.list{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transform: translate(-20px);
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.App-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  background-color: #282c34;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  text-decoration: none;
+  color: #61dafb;
+}
+
+.App-link:hover {
+  color: #84e4ff;
+}
+
+.container {
   text-align: center;
+  margin: 0 auto 0;
+  width: 90%;
+  max-width: 400px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+button {
+  height: 50px;
+  width: 200px;
+  display: block;
+  margin: 30px auto 70px auto;
+  border: none;
+  background-color: black;
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button:hover {
+  background-color: rgb(41, 41, 41);
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* --- Contact ---- */
+
+.label-and-input {
+  display: flex;
+  flex-direction: column;
 }
 
-.card {
-  padding: 2em;
+label {
+  text-align: left;
+  font-size: small;
+  margin-top: 30px;
+  margin-bottom: 7px;
 }
 
-.read-the-docs {
-  color: #888;
+select, input, textarea {
+  background-color: #f5f5f5;
+  border: none;
+  outline-style: none;
+  outline-color: #888;
+  height: 50px;
+  max-width: 400px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+textarea {
+  padding: 15px;
+}
+
+select:hover, input:hover, textarea:hover {
+  background-color: #f0f0f0
+}
+
+.checkbox-typo {
+  font-size: small;
+  padding-top: 4px;
+}
+
+.checktest {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checktest input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+
+.checkmark {
+position: absolute;
+top: 0;
+left: 0;
+height: 25px;
+width: 25px;
+background-color: #f5f5f5;
+}
+
+.checktest:hover input ~ .checkmark {
+background-color: #f0f0f0;
+}
+
+.checktest input:checked ~ .checkmark {
+background-color: #2196F3;
+}
+
+.checkmark:after {
+content: "";
+position: absolute;
+display: none;
+}
+
+.checktest input:checked ~ .checkmark:after {
+display: block;
+}
+
+.checktest .checkmark:after {
+left: 9px;
+top: 5px;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 3px 3px 0;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
 }
