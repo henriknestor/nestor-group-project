@@ -1,1 +1,0 @@
-console.log ("Hi my name is Linnéa my hobbies are flesking a lesk and besking a pesk. I live in Flesk. I am 38 years old.");

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import Card from "./card.jsx";
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -28,23 +27,21 @@ const Register = () => {
 
     return (
         <div className="container">
-            <Card>
-                <form className="form-container">
+        
+                <form className="label-and-input">
                     <h1>Register User</h1>
-                    <label>
-                        <input type="text" placeholder="Name" value={username} onChange={(e) => setUsername(e.target.value)} />
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-                    </label>
-                    <label>
-                        <input type="text" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-                    </label>
-                    <button className="btn" type="submit" onClick={handleSubmit}>
-                        <p>Register</p>
-                    </button>
+                        <label htmlFor="name">Name</label>
+                        <input type="name" id="name" placeholder="Name" value={username} onChange={(e) => setUsername(e.target.value)} />
+
+                        <label htmlFor="email">Email</label>
+                        <input type="email" id="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+                        
+                        <label htmlFor="password">Password</label>
+                        <input type="password" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    
+                        <button className="btn" type="submit" onClick={handleSubmit}>Register</button>
                 </form>
-            </Card>
+          
         </div>
     );
 };

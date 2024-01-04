@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Card from "./card.jsx";
+
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -12,7 +12,8 @@ const Login = () => {
     const checkUser = (users) => {
         const user = users.find(
             (user) => user.email === email && user.password === password);
-        if(user.email === email && user.password === password) return user;
+            console.log(user);
+            if(user.email === email && user.password === password) return user;
     };
 
     const handleSubmit = async (e) => {
@@ -30,7 +31,7 @@ const Login = () => {
         })
 
         if (user.email === email && user.password === password) {
-            navigate("/");
+            navigate("./../loggedin");
             //Här måste man skriva in vart man ska ta vägen och lägga in routen i app.jsx
 
             localStorage.setItem("user", JSON.stringify(user.id))
@@ -41,30 +42,27 @@ const Login = () => {
 
     return (
     <div className="container">
-        <Card>
-            <form className="form-container">
+            <form className="label-and-input">
                 <h1>Login</h1>
-                <label>
+                <label htmlFor="email">Email</label>
                     <input
-                        type="text"
+                        type="email"
+                        id="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                </label>
-                <label>
+                <label htmlFor="password">Password</label>
                     <input 
-                        type="text"
+                        type="password"
+                        id="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                </label>
-                <button className="btn" type="submit" onClick={handleSubmit}>
-                    <p>Log in</p>
-                </button>
+                <button className="btn" type="submit" onClick={handleSubmit}>Enter</button>
             </form>
-        </Card>
+
     </div>
     );
 };
