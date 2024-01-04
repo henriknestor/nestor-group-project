@@ -37,6 +37,10 @@ h1 {
   margin-bottom: 40px;
 }
 
+.App {
+  text-align: center;
+}
+
 .App-footer {
   position: absolute;
   width: 100%;

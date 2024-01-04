@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "axios";
+import axios from "axios";4
 
 const Register = () => {
     const [username, setUsername] = useState("");
@@ -13,14 +13,14 @@ const Register = () => {
 
     const handleSubmit = async () => {
         const user = await axios
-            .get("/users")
+            .get("http://localhost:6201/users")
             .then((res) => checkEmail(res.data, email));
 
             if(user) {
                 alert("User already exists")
             } else {
                 const user = (username, email, password);
-                axios.post("/users", user).then(alert("User created"));
+                axios.post("http://localhost:6201/users", user).then(alert("User created"));
             }
 
     }
@@ -29,7 +29,7 @@ const Register = () => {
         <div className="container">
         
                 <form className="label-and-input">
-                    <h1>Register User</h1>
+                    <h1>Register new user</h1>
                         <label htmlFor="name">Name</label>
                         <input type="name" id="name" placeholder="Name" value={username} onChange={(e) => setUsername(e.target.value)} />
 

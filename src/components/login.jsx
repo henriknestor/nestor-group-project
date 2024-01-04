@@ -24,7 +24,7 @@ const Login = () => {
         }
 
         const user = await axios
-        .get("/users")
+        .get("http://localhost:6201/users")
         .then((res) => checkUser(res.data, email, password))
         .catch((error) => {
             console.log(error);
