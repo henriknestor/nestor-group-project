@@ -13,6 +13,8 @@ const Register = () => {
         if(user) return user;
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -29,7 +31,9 @@ const Register = () => {
                 alert("User already exists")
             } else {
                 const user = ({name: username, password: password, email: email});
-                axios.post("http://localhost:6201/users", user).then(alert("User created"));
+                axios.post("http://localhost:6201/users", user)
+                .then(alert("User created"))
+                .then(navigate("./../loggedin"));
             }
 
     }

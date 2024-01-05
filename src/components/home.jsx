@@ -5,10 +5,10 @@ const Home = () => {
     const navigate = useNavigate();
 
     const playJanken = () => {
-        navigate("./../janken");
-    };
+        navigate("./../janken")
+    }
 
-    const logIn =() => {
+    const logIn = () => {
         navigate("./../login")
     }
 
