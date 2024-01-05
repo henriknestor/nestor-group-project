@@ -1,10 +1,22 @@
 {
   "users": [
     {
-      "name": "test",
+      "username": "test",
       "email": "test@gmail.com",
       "password": "123456",
       "id": 1
+    },
+    {
+      "name": "henrik",
+      "password": "a",
+      "email": "henrikmail",
+      "id": 2
+    },
+    {
+      "name": "a",
+      "password": "d",
+      "email": "s",
+      "id": 3
     }
   ],
   "todos": [

@@ -1,18 +1,24 @@
-import Button from "./Button";
-import {Link} from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-    const navigate = useNavigate("./../janken");
-    // Funkar inte :(
+
+    const navigate = useNavigate();
+
+    const playJanken = () => {
+        navigate("./../janken");
+    };
+
+    const logIn =() => {
+        navigate("./../login")
+    }
 
     return (
         <>
             <div className="container">
             <h1>Home</h1>
             <p>Now you are home</p>
-            <Button onClick={navigate}>Play Janken</Button>
-            <Link className="App-link" to="./../janken">Play Janken</Link>         
+            <button className="btn" type="none" onClick={playJanken}>Play Janken</button>
+            <button className="btn" type="none" onClick={logIn}>Login</button>
             </div>
         </>
     );

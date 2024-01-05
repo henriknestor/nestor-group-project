@@ -9,6 +9,7 @@ import Loggedin from "./components/logged-in";
 import PrivateRoute from "./components/PrivateRoute";
 import TestPrivateRoute from "./components/TestPrivateRoute";
 import Janken from "./components/jankenpon";
+import Randomizer from "./components/randomizer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="loginandregister" element={<LoginAndRegister />} />
           <Route path="/loggedin" element={<Loggedin />} />
+          <Route path="/randomizer" element={<Randomizer />} />
           <Route 
             path="/user"
             element={

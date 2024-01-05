@@ -32,13 +32,14 @@ const Login = () => {
 
         if (user.email === email && user.password === password) {
             navigate("./../loggedin");
-            //Här måste man skriva in vart man ska ta vägen och lägga in routen i app.jsx
+            //Här måste man se till att routen är inlagd i app.jsx
 
             localStorage.setItem("user", JSON.stringify(user.id))
         }
         setEmail("");
         setPassword("");
     };
+
 
     return (
     <div className="container">
@@ -61,6 +62,7 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 <button className="btn" type="submit" onClick={handleSubmit}>Enter</button>
+
             </form>
 
     </div>
