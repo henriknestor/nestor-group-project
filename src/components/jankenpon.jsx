@@ -18,19 +18,21 @@ const Janken = () => {
     const sten = () => {
         setPick("Sten");
         generateComPick();
+        //generateResult();
     };
     const sax = () => {
         setPick("Sax");
         generateComPick();
+        //generateResult();
     };
     const pase = () => {
         setPick("Påse");
         generateComPick();
+        //generateResult();
     };
 
  
     // Set computers choice (random)
-
     const comPicks = [
         "Sten",
         "Sax",
@@ -41,11 +43,25 @@ const Janken = () => {
         return comPicks[Math.floor(Math.random() * comPicks.length)];
       };
       
-        const [comPick, setComPick] = useState(getComPick());
-        const generateComPick = () => {
+    const [comPick, setComPick] = useState(getComPick());
+    
+    const generateComPick = () => {
           const randomComPick = getComPick();
           setComPick(randomComPick);
         };
+
+    // Display result
+    const [result, setResult] = useState("");
+
+    const generateResult = () => {
+        if (pick === comPick) {
+            setResult("Tie");
+        } else if (pick === "Sten" && comPick === "Sax" || pick === "Sax" && comPick === "Påse" || pick === "Påse" && comPick === "Sten") {
+            setResult("You win!");
+        } else if (pick === "Sten" && comPick === "Påse" || pick === "Sax" && comPick === "Sten" || pick === "Påse" && comPick === "Sax") {
+            setResult("You loose :(");
+        }
+    };
 
     return (
         <>        
@@ -59,6 +75,9 @@ const Janken = () => {
             <p>{pick}</p>
             <h2>Computers pick:</h2>
             <p>{comPick}</p>
+            <button onClick={generateResult}>See result</button>
+            <h2>Outcome:</h2>
+            <p>{result}</p>
 
             <button onClick={signOut}>Sign out</button>
         </div>
