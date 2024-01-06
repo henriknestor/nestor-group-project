@@ -18,17 +18,17 @@ const Janken = () => {
     const sten = () => {
         setPick("Sten");
         generateComPick();
-        //generateResult();
+        generateResult();
     };
     const sax = () => {
         setPick("Sax");
         generateComPick();
-        //generateResult();
+        generateResult();
     };
     const pase = () => {
         setPick("Påse");
         generateComPick();
-        //generateResult();
+        generateResult();
     };
 
  
@@ -63,6 +63,19 @@ const Janken = () => {
         }
     };
 
+    // Haha, det här funkar ju inte alls, det laggar på nåt sätt, ska försöka komma runt det med en alertbox
+
+    const alertResult = () => {
+        alert(`Your pick: ${pick} \n Computer's pick ${comPick} \n ${result}`);
+    };
+
+    const seeResult = () => {
+        generateResult();
+        alertResult();
+    };
+
+    // Haha nu synkar inte alertResult med result, fattar nada :D
+
     return (
         <>        
         <div className="container">
@@ -75,9 +88,9 @@ const Janken = () => {
             <p>{pick}</p>
             <h2>Computers pick:</h2>
             <p>{comPick}</p>
-            <button onClick={generateResult}>See result</button>
             <h2>Outcome:</h2>
             <p>{result}</p>
+            <button onClick={seeResult}>See result</button>
 
             <button onClick={signOut}>Sign out</button>
         </div>
