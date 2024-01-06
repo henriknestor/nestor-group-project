@@ -55,9 +55,9 @@ const Janken = () => {
             <button onClick={sten}>Sten</button>
             <button onClick={sax}>Sax</button>
             <button onClick={pase}>Påse</button>
-            <h2>Your choice:</h2>
+            <h2>Your pick:</h2>
             <p>{pick}</p>
-            <h2>My choice:</h2>
+            <h2>Computers pick:</h2>
             <p>{comPick}</p>
 
             <button onClick={signOut}>Sign out</button>
