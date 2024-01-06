@@ -4,39 +4,54 @@ import ReactDOM from "react-dom/client";
 
 const Janken = () => {
 
+
+    // Sign out
     const navigate = useNavigate();
 
     const signOut = () => {
         navigate("./../home");
     };
 
-    const [pick, setPick] = useState("");
+    // Set players choice
+    const [pick, setPick] = useState("^ Pick one ^");
 
-    const [comPick, setComPick] = useState("");
+    const sten = () => {
+        setPick("Sten");
+        generateComPick();
+    };
+    const sax = () => {
+        setPick("Sax");
+        generateComPick();
+    };
+    const pase = () => {
+        setPick("Påse");
+        generateComPick();
+    };
 
-    const sten =() => {
-        setPick("Sten")
-        setComPick("Påse")
-        alert("My choice was Påse, you lost")
-    }
-    const sax =() => {
-        setPick("Sax")
-        setComPick("Sten")
-        alert("My choice was Sten, you lost")
-    }
-    const pase =() => {
-        setPick("Påse")
-        setComPick("Sax")
-        alert("My choice was Sax, you lost")
-    }
+ 
+    // Set computers choice (random)
 
-
+    const comPicks = [
+        "Sten",
+        "Sax",
+        "Påse",
+      ];
+      
+      const getComPick = () => {
+        return comPicks[Math.floor(Math.random() * comPicks.length)];
+      };
+      
+        const [comPick, setComPick] = useState(getComPick());
+        const generateComPick = () => {
+          const randomComPick = getComPick();
+          setComPick(randomComPick);
+        };
 
     return (
         <>        
         <div className="container">
             <h1>Jankenpon</h1>
-            <p>Let´s play Janken</p>
+            <p>Let's play Janken</p>
             <button onClick={sten}>Sten</button>
             <button onClick={sax}>Sax</button>
             <button onClick={pase}>Påse</button>
