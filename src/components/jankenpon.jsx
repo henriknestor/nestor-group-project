@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 
@@ -17,18 +17,12 @@ const Janken = () => {
 
     const sten = () => {
         setPick("Sten");
-        generateComPick();
-        generateResult();
     };
     const sax = () => {
         setPick("Sax");
-        generateComPick();
-        generateResult();
     };
     const pase = () => {
         setPick("Påse");
-        generateComPick();
-        generateResult();
     };
 
  
@@ -50,7 +44,7 @@ const Janken = () => {
           setComPick(randomComPick);
         };
 
-    // Display result
+    // Generate result
     const [result, setResult] = useState("");
 
     const generateResult = () => {
@@ -63,18 +57,11 @@ const Janken = () => {
         }
     };
 
-    // Haha, det här funkar ju inte alls, det laggar på nåt sätt, ska försöka komma runt det med en alertbox
-
-    const alertResult = () => {
-        alert(`Your pick: ${pick} \n Computer's pick ${comPick} \n ${result}`);
-    };
-
-    const seeResult = () => {
+    // Trying to get rid of result lag, doesn't really work cause you can't choose the same pick twice :/
+    useEffect(() => {
+        generateComPick();
         generateResult();
-        alertResult();
-    };
-
-    // Haha nu synkar inte alertResult med result, fattar nada :D
+    }, [sten || sax || pase]);
 
     return (
         <>        
@@ -90,7 +77,6 @@ const Janken = () => {
             <p>{comPick}</p>
             <h2>Outcome:</h2>
             <p>{result}</p>
-            <button onClick={seeResult}>See result</button>
 
             <button onClick={signOut}>Sign out</button>
         </div>
